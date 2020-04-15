@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>getTarget</title>
+</head>
+<body>
+    <ul class="ul-List">
+        <li>職人必修的 RWD 網頁入門班</li>
+        <li>現代 JavaScript 職人之路｜入門篇</li>
+        <li>現代 JavaScript 職人之路｜中階實戰篇</li>
+        <li>超越入門！Webpack 前端自動化開發</li>
+        <li>JavaScript ＆ TweenMax 動態特效速成實戰</li>
+    </ul>
+    <script>
+
+        // getElementsByClassName
+
+        // 取得 ul 元件
+        document.getElementsByClassName('ul-List')[0];
+        // 取得 ul 裡面的 li 子元件
+        document.getElementsByClassName('ul-List')[0].children[2];
+
+
+        // querySelector
+
+        // 取得 ul 元件
+        document.querySelector('.ul-List');
+        // 取得 ul 裡面的 li 子元件
+        document.querySelector('.ul-List > li:nth-child(3)');
+        
+    </script>
+</body>
+</html>

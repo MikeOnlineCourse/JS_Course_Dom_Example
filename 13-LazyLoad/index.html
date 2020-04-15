@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>LazyLoad</title>
+    <style>
+        html, body{ width: 100%; background-color: steelblue; display: flex; flex-wrap: wrap; justify-content: space-around; align-items: center;}
+        div{ margin: 5px; background-color: #ddd; width: 32%; height: 400px; float: left; overflow: hidden; display: flex; justify-content: center; align-items: center;}
+        img{ display: block; width: 100%;}
+        .lazyload, .lazyloading { opacity: 0;}
+        .lazyloaded { opacity: 1; transition: opacity 1s;}
+    </style>
+</head>
+<body>
+    <div><img data-src="https://source.unsplash.com/random/800x800?1" class="lazyload"/></div>
+    <div><img data-src="https://source.unsplash.com/random/800x800?2" class="lazyload"/></div>
+    <div><img data-src="https://source.unsplash.com/random/800x800?3" class="lazyload"/></div>
+    <div><img data-src="https://source.unsplash.com/random/800x800?4" class="lazyload"/></div>
+    <div><img data-src="https://source.unsplash.com/random/800x800?5" class="lazyload"/></div>
+    <div><img data-src="https://source.unsplash.com/random/800x800?6" class="lazyload"/></div>
+    <div><img data-src="https://source.unsplash.com/random/800x800?7" class="lazyload"/></div>
+    <div><img data-src="https://source.unsplash.com/random/800x800?8" class="lazyload"/></div>
+    <div><img data-src="https://source.unsplash.com/random/800x800?9" class="lazyload"/></div>
+    <div><img data-src="https://source.unsplash.com/random/800x800?11" class="lazyload"/></div>
+    <div><img data-src="https://source.unsplash.com/random/800x800?12" class="lazyload"/></div>
+    <div><img data-src="https://source.unsplash.com/random/800x800?13" class="lazyload"/></div>
+    <div><img data-src="https://source.unsplash.com/random/800x800?14" class="lazyload"/></div>
+    <div><img data-src="https://source.unsplash.com/random/800x800?15" class="lazyload"/></div>
+    <div><img data-src="https://source.unsplash.com/random/800x800?16" class="lazyload"/></div>
+    <div><img data-src="https://source.unsplash.com/random/800x800?17" class="lazyload"/></div>
+    <div><img data-src="https://source.unsplash.com/random/800x800?18" class="lazyload"/></div>
+    <div><img data-src="https://source.unsplash.com/random/800x800?19" class="lazyload"/></div>
+    
+    <script src="./Throttle.js"></script>
+    <script>
+        const lazyImages = document.querySelectorAll('.lazyload');
+        function lazyloadFn() {
+            lazyImages.forEach(image => {
+                if (image.offsetTop < window.innerHeight + window.pageYOffset + 300) {
+                    if(image.src === ""){   
+                        image.src = image.dataset.src;
+                        image.onload = () => image.classList.add('lazyloaded')
+                    }
+                }
+            })
+        }
+        const lazy = ThrottleFn(lazyloadFn);
+        lazy();
+        window.addEventListener('scroll', lazy);
+    </script>
+</body>
+</html>

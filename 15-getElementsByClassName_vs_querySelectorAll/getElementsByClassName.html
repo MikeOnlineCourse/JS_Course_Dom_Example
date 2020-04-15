@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>getElementsByClassName</title>
+</head>
+<body>
+    <ul class="ul-Box">
+        <li class="item">職人必修的 RWD 網頁入門班</li>
+        <li class="item">現代 JavaScript 職人之路｜入門篇</li>
+        <li class="item">現代 JavaScript 職人之路｜中階實戰篇</li>
+        <li class="item">超越入門！Webpack 前端自動化開發</li>
+    </ul>
+    <script>
+        const item = document.getElementsByClassName('item');
+        console.log(item);
+
+        
+        // --------------------------------------------------------------------------------
+        const li = document.createElement('li');
+        const liTxt = document.createTextNode('JavaScript ＆ TweenMax 動態特效速成實戰');
+        li.setAttribute('class', 'item');
+        li.appendChild(liTxt);
+        document.getElementsByClassName('ul-Box')[0].appendChild(li);
+        // --------------------------------------------------------------------------------
+
+        
+        console.log(item);
+    </script>
+</body>
+</html>

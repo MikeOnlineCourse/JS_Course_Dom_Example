@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>innerHTML</title>
+    <link rel="stylesheet" href="./css/main.css">
+    <script src="./json/data.js"></script>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li class="id">Id</li>
+            <li class="image">Image</li>
+            <li class="name">Name</li>
+            <li class="price"><a class="sort" href="javascript:;">Price</a></li>
+        </ul>
+        <div class="List">
+
+        </div>
+    </div>
+
+    <script>
+        const List = document.querySelector('.List');
+        const sortBtn = document.querySelector('.sort');
+        let html = "";
+        const tableData = JSON.parse(JSON.stringify(TABLE_DATA));
+        const renderDOM = () =>{
+            html = "";
+            tableData.forEach(item=>{
+                html += `
+                    <ul>
+                        <li class="id">${item.id}</li>
+                        <li class="image"><img src="${item.thumbnailUrl}" alt=""></li>
+                        <li class="name">??</li>
+                        <li class="price">${item.price}</li>
+                    </ul>
+                `
+            });
+            List.innerHTML = html;
+        }
+        renderDOM();
+        sortBtn.addEventListener("click", ()=>{
+            tableData.sort((a, b)=> a.price - b.price);
+            renderDOM();
+        })
+    </script>
+
+</body>
+</html>

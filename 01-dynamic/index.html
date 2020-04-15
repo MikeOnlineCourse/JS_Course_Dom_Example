@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>dynamic</title>
+</head>
+<body>
+    
+
+    <h1 id="app">
+        dynamic nodeList
+    </h1>
+
+    <script>
+        const script = document.createElement('script');
+        script.setAttribute('type', 'text/javascript');
+        script.setAttribute('src', './jquery.min.js');
+        document.getElementsByTagName('head')[0].appendChild(script);
+        script.onload = e => {
+
+            console.log($);
+
+        }
+    </script>
+
+</body>
+</html>

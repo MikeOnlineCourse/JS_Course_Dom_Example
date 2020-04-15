@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>appendChild</title>
+    <link rel="stylesheet" href="./css/main.css">
+    <script src="./json/data.js"></script>
+    <script src="./js/DOM.js"></script>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li class="id">Id</li>
+            <li class="image">Image</li>
+            <li class="name">Name</li>
+            <li class="price"><a class="sort" href="javascript:;">Price</a></li>
+        </ul>
+        <div class="List">
+
+        </div>
+    </div>
+
+    <script>
+        const List = document.querySelector('.List');
+        const sortBtn = document.querySelector('.sort');
+        const tableData = JSON.parse(JSON.stringify(TABLE_DATA));
+        const dataArr = [];
+        let isReverse = false;
+        const createDOM = () =>{
+            tableData.forEach(item=>{
+                const ul = new creEle('ul');
+                const idli = new creEle('li');
+                const imageli = new creEle('li');
+                const img = new creEle('img');
+                const nameli = new creEle('li');
+                const priceli = new creEle('li');
+                
+                idli.setText(item.id);
+                img.setAttribute({'src': item.thumbnailUrl});
+                imageli.el.appendChild(img.el);
+                nameli.setText(item.name);
+                priceli.setText(item.price);
+
+                idli.setAttribute({'class': 'id'});
+                imageli.setAttribute({'class': 'image'});
+                nameli.setAttribute({'class': 'name'});
+                priceli.setAttribute({'class': 'price'});
+
+                ul.el.appendChild(idli.el);
+                ul.el.appendChild(imageli.el);
+                ul.el.appendChild(nameli.el);
+                ul.el.appendChild(priceli.el);
+                
+                dataArr.push(ul.el);
+            });
+        }
+        const renderDOM = () =>{
+            dataArr.forEach(item=>{
+                document.querySelector('.List').appendChild(item);
+            })
+        }
+        createDOM();
+        renderDOM();
+        sortBtn.addEventListener("click", ()=>{
+            isReverse = !isReverse;
+            if(isReverse){
+                dataArr.sort((a, b)=> (+a.childNodes[3].textContent) - (+b.childNodes[3].textContent));
+            }else{
+                dataArr.sort((a, b)=> (+b.childNodes[3].textContent) - (+a.childNodes[3].textContent));
+            }
+            renderDOM();
+        })
+        
+    </script>
+
+</body>
+</html>

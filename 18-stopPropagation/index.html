@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>stopPropagation</title>
+</head>
+<body>
+    
+    <ul>
+        <li class="item"><a href="javascript:;">職人必修的 RWD 網頁入門班</a></li>
+        <li class="item"><a href="javascript:;">現代 JavaScript 職人之路｜入門篇</a></li>
+        <li class="item"><a href="javascript:;">超越入門！Webpack 前端自動化開發</a></li>
+        <li class="item"><a href="javascript:;">JavaScript ＆ TweenMax 動態特效速成實戰</a></li>
+        <li class="item"><a href="javascript:;">現代 JavaScript 職人之路｜中階實戰篇</a></li>
+    </ul>
+
+
+    <script>
+        const item = document.querySelectorAll('.item');
+        const link = document.querySelectorAll('.item > a');
+        
+        for(let i = 0; i < item.length; i++){
+            item[i].addEventListener('click', getItemEl);
+            link[i].addEventListener('click', getlinkEl);
+        }
+
+        function getItemEl(e){
+            console.log("1");
+        }
+
+        function getlinkEl(e){
+            e.stopPropagation();
+            console.log("2");
+            
+        }
+    </script>
+
+
+</body>
+</html>

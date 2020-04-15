@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MutationObserver</title>
+</head>
+<body>
+    
+
+    <div id="app">
+        <!-- MutationObserver 可以監控DOM變化 -->
+    </div>
+
+
+    <script>
+    
+        const app = document.querySelector("#app");
+        const mo = new MutationObserver(mutations=> {
+            mutations.forEach(mutation=> {
+                console.log(mutation);
+            });
+        });
+        mo.observe(app, {
+            attributes: true,
+            characterData: true,
+            childList: true,
+            subtree: true,
+            attributeOldValue: true,
+            characterDataOldValue: true
+        });
+
+        const a_link = document.createElement('a');
+        const txt_Node = document.createTextNode('BTN');
+        a_link.setAttribute('href', 'javascript:;')
+        a_link.appendChild(txt_Node);
+
+        app.appendChild(a_link);
+
+    
+    </script>
+
+
+
+</body>
+</html>

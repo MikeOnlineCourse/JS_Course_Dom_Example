@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>createElement & appendChild</title>
+</head>
+<body>
+    <button id="RenderBtn">Render</button>
+    <script>
+        const data = [
+            { name: "mike", age: 22 },
+            { name: "jacky", age: 12 },
+            { name: "andy", age: 33 },
+            { name: "kuro", age: 50 }
+        ]
+
+        const body = document.querySelector('body')
+        const arr = [];
+        let isRe = false;
+
+        for (let item of data) {
+            const h1 = document.createElement("h1");
+            const textNode = document.createTextNode(`${item.name} ${item.age}`);
+            h1.age = item.age;
+            h1.append(textNode);
+            arr.push(h1);
+        }
+
+        const SortFn = () =>{
+            isRe = !isRe;
+            if(isRe){
+                arr.sort((a, b)=> a.age - b.age);
+            }else{
+                arr.sort((a, b)=> b.age - a.age);
+            }
+        }
+
+        const appendDOM = () =>{
+            SortFn();
+            for (let item of arr) {
+                body.appendChild(item);
+            }
+        }
+
+        document.querySelector('#RenderBtn').addEventListener("click", ()=>{
+            appendDOM();
+        })
+            
+    </script>
+    
+</body>
+</html>

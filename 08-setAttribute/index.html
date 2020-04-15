@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>setAttribute</title>
+</head>
+<body>
+    
+    <script>
+        
+        const h1 = document.createElement('h1');
+        const txt = document.createTextNode('Mike');
+        h1.appendChild(txt);
+        document.querySelector('body').appendChild(h1);
+
+        h1.setAttribute('id', 'titleName');
+        h1.setAttribute('data-id', 0);
+        h1.style.cssText = 'color: red;';
+
+    </script>
+
+</body>
+</html>

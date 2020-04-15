@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>insertBefore</title>
+</head>
+<body>
+
+    <ul id="ul">
+        <li>職人必修的 RWD 網頁入門班</li>
+        <li>現代 JavaScript 職人之路｜入門篇</li>
+        <!-- <li>超越入門！Webpack 前端自動化開發</li> -->
+        <li>JavaScript ＆ TweenMax 動態特效速成實戰</li>
+        <li>現代 JavaScript 職人之路｜中階實戰篇</li>
+    </ul>
+
+    <script>
+        
+        const ul  = document.getElementById('ul');
+        const refNode = document.querySelectorAll('li')[2];
+        const newNode = document.createElement('li');
+        const textNode = document.createTextNode("超越入門！Webpack 前端自動化開發");
+        newNode.appendChild(textNode);
+        ul.insertBefore(newNode, refNode);
+
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Throttle</title>
+    
+</head>
+<body>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+    1<br/>
+
+    <script>
+        function ThrottleFn(fn=()=>{}, timer=400) {
+            let reTimes = null
+            return ()=>{ 
+                if(reTimes){
+                    clearTimeout(reTimes)
+                }
+                reTimes = setTimeout(()=>{
+                    fn();
+                }, timer);
+            }
+        }
+
+        function scrollLog(){
+            console.log('scroll');
+        }
+
+        const scrollFn = ThrottleFn(scrollLog, 500);
+        scrollFn();
+        window.addEventListener('scroll', scrollFn);
+    </script>
+    
+</body>
+</html>

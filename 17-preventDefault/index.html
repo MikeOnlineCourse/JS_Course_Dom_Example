@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>preventDefault</title>
+</head>
+<body>
+    
+
+    <form action="https://www.google.com/" method="GET">
+        <input type="text" name="name" id="name">
+        <button id="btn">送出</button>
+    </form>
+
+    <a id="alink" href="#">link</a>
+
+    <script>
+
+        document.getElementById('btn').addEventListener('click', e=>{
+            //阻止瀏覽器預設行為
+            e.preventDefault();
+        });
+
+        document.getElementById('alink').addEventListener('click', e=>{
+            //阻止瀏覽器預設行為
+            e.preventDefault();
+        });
+
+    </script>
+
+
+
+</body>
+</html>

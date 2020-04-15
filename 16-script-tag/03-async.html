@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>async</title>
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/phaser/3.19.0/phaser.js"></script>
+</head>
+<body>
+
+    <h1>async 檔案會平行載入，完全下載後會依照順序解析</h1>
+    <script>
+
+        //因為DOM還沒有解析完所以 js 是 undefined
+        console.log('jQuery =>', window['$']);
+        console.log('Phaser =>', window['Phaser']);
+        console.log('TweenMax =>', window['TweenMax']);
+        
+        //完全下載後會依照順序解析js
+        const timer = setInterval(()=>{
+            console.log('jQuery =>', window['$']);
+            console.log('TweenMax =>', window['TweenMax']);
+            console.log('Phaser =>', window['Phaser']);
+            console.log('----------------------------------------------------');
+            if(window['$'] && window['Phaser'] && window['TweenMax']){
+                clearInterval(timer);
+            }
+        },200)
+    
+    </script>
+
+</body>
+</html>

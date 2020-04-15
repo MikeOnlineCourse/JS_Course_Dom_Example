@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>removeNode</title>
+</head>
+<body>
+    <div id="app">
+        <h1 id="tit1">DOM 1</h1>
+        <h2 id="tit2">DOM 2</h2>
+        <h3 id="tit3">DOM 3</h3>
+        <h4 id="tit4">DOM 4</h4>
+    </div>
+    <script>
+        const app = document.getElementById('app');
+
+        // 移除元素節點
+        const tit2 = document.getElementById('tit2');
+        app.removeChild(tit2);
+
+        // 移除文字節點
+        const tit3txt = document.getElementById('tit3').firstChild;
+        document.getElementById('tit3').removeChild(tit3txt);
+        
+        // 塞入文字節點
+        const txtNode = document.createTextNode("new Tit3");
+        document.getElementById('tit3').appendChild(txtNode);
+        
+
+    </script>
+</body>
+</html>

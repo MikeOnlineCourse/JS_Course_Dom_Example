@@ -1,0 +1,46 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+li{
+    list-style: none;
+}
+html, body{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#app{
+    width: 70%;
+    height: 500px;
+    overflow: auto;
+    margin: 0 auto;
+}
+h1{
+    margin: 0 auto;
+    font-size: 90px;;
+}
+ul{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+li{
+
+}
+.id{
+    width: 10%;
+}
+.image{
+    width: 20%;
+}
+.name{
+    width: 40%;
+}
+.price{
+    width: 30%;
+}
